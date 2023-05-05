@@ -22,6 +22,7 @@ namespace MathStuff {
             static bool isEmirp(int n);
             static int sumOfNPrimes(int n);
             static int productOfNPrimes(int n);
+            static std::vector <int> generatePrimes(int n); //Using sieve of Eratosthenes
             static std::vector<int> primeFactorization(int n);
         
     };
