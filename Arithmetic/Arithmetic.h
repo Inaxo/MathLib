@@ -3,6 +3,10 @@
 namespace MathStuff {
     class Arithmetic {
     public:
+        template<typename Container>
+        static double average(const Container& c);
+        template<typename T>
+        static double average(const T* arr, std::size_t size);
         static double add(std::initializer_list<double> args);
         static double substract(std::initializer_list<double> args);
         static double multiply(std::initializer_list<double> args);
