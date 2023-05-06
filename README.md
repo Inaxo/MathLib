@@ -1,19 +1,14 @@
 # MathLib
 
-MathLib is a C++ library that provides various mathematical algorithms and functions. It supports transformations of containers using overloaded operators, quadratic functions, and various mathematical functions.
+MathLib is a versatile C++ library that provides a wide range of mathematical algorithms and functions, including but not limited to transformations of containers using overloaded operators, quadratic functions, and various mathematical functions.
 
 ## Features
 
-MathLib currently provides the following features:
+MathLib provides a comprehensive list of features that includes:
 
 ### Container Transformations
 
-MathLib supports transformations of containers through overloaded operators. Some examples of supported operations include:
-
--   `+`, `-`, `*`, `/`: element-wise addition, subtraction, multiplication, and division between two containers
--   `%`: element-wise modulo between two containers
--   `^`: element-wise power between two containers
--   `==`, `!=`, `<`, `>`, `<=`, `>=`: element-wise comparison between two containers
+MathLib supports transformations of containers using overloaded operators, allowing element-wise operations such as addition, subtraction, multiplication, division, and modulo between two containers, as well as element-wise power and comparison.
 
 ### Quadratic Functions
 
@@ -21,41 +16,42 @@ MathLib includes functions to compute the roots and vertex of a quadratic functi
 
 ### Mathematical Functions
 
-MathLib provides various mathematical functions, such as:
+MathLib provides various mathematical functions, such as absolute value, square root, exponential function, natural logarithm, base-10 logarithm, trigonometric functions, and more.
 
--   `abs`: absolute value
--   `sqrt`: square root
--   `exp`: exponential function
--   `log`: natural logarithm
--   `log10`: base-10 logarithm
--   `sin`, `cos`, `tan`, `asin`, `acos`, `atan`: trigonometric functions
+### Search and Dynamic Algorithms
+
+MathLib offers a range of search algorithms, including binary search and linear search, and dynamic algorithms such as the dynamic programming algorithm for solving optimization problems.
+
+### Prime Numbers and Number Theory
+
+MathLib includes various functions related to prime numbers and number theory, including checking whether a number is prime, generating primes, computing prime factorization, and more.
 
 ## Usage
 
 To start using MathLib, you need to add the MathLib .lib file to your project and include the main header file "MathLib.h" in your C++ project:
-```CPP
-#include "MathLib/MathLib.h"
-```
-For example, to use the quadratic functions, include the following header:
 
 ```CPP
-#include "MathLib/QuadraticFunctions.h"
+#include "MathLib/MathLib.h" 
 ```
-Next example, to use the search algorithms, include the following header:
+To use a specific feature, include the corresponding header, such as the following examples:
 
 ```CPP
-#include "MathLib/Algorithms/SearchAlgorithms.h" 
+#include "MathLib/QuadraticFunctions.h"  // to use quadratic functions
+#include "MathLib/Algorithms/SearchAlgorithms.h"  // to use search algorithms
+#include "MathLib/NumberTheory/NumbersLogic.h"  // to use number theory functions
 ```
+
 ## Example
 
 Here's an example that demonstrates how to use MathLib to transform containers and compute the roots of a quadratic function:
 
+
 ```CPP
 #include <iostream>
-#include <list>
 #include <vector>
 #include "../MathLib/MathLib.h"
 #include "../MathLib/Equations/QuadraticEquation.h"
+
 using namespace MathStuff;
 using namespace std;
 
@@ -82,10 +78,10 @@ int main() {
     return 0;
 }
 ```
+
 This program should output:
 
-`5 7 9
-Roots: 0.5, -3` 
+`5 7 9 Roots: 0.5, -3`
 
 ## License
 
