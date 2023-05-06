@@ -19,12 +19,8 @@ namespace MathStuff
     class Arithmetic;
     class NumbersLogic;
     class QuadraticEquation;
+    class SearchAlgorithms;
+    class DynamicAlgorithms;
 
-    class SearchingAlgorithms
-    {
-    public:
-        template <typename T>
-        static std::map<int, int> find_duplicates(const T& pairs_);
 
-    };
 }
