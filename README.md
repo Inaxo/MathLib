@@ -12,7 +12,7 @@ MathLib supports transformations of containers using overloaded operators, allow
 
 ### Quadratic Functions
 
-MathLib includes functions to compute the roots and vertex of a quadratic function in the form `f(x) = ax^2 + bx + c`.
+MathLib offers a wide range of functions, such as determining real roots, finding the number of roots, getting the axis of symmetry, and more.
 
 ### Mathematical Functions
 
