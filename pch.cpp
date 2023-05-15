@@ -578,16 +578,13 @@ std::map<int, int> SearchAlgorithms::find_duplicates(const T& pairs_)
     return duplicates;
 
 }
-template <typename T, typename E>
-bool SearchAlgorithms::contains(const T& container_, const E& element_)
+template<typename Container, typename Element>
+bool SearchAlgorithms::contains(const Container& container_, const Element& element_)
 {
-    for (const auto& item : container_) {
-        if (item == element_) {
-            return true;
-        }
-    }
-    return false;
+    return std::find(container_.begin(), container_.end(), element_) != container_.end();
 }
+
+template bool SearchAlgorithms::contains<std::vector<int>>(const std::vector<int>& container_, const int& element_);
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::vector<int>& c);
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::list<int>& c);
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::vector<double>& c);
