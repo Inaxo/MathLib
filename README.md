@@ -31,7 +31,7 @@ MathLib includes various functions related to prime numbers and number theory, i
 To start using MathLib, you need to add the MathLib .lib file to your project and include the main header file "MathLib.h" in your C++ project:
 
 ```CPP
-#include "MathLib/MathLib.h" 
+#include "MathLib.h" 
 ```
 
 ## Example
