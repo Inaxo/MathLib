@@ -4,13 +4,7 @@
 #include "cmath"
 #include <sstream>
 #include "vector"
-#include "Arithmetic/Arithmetic.h"
-#include "Equations/QuadraticEquation.h"
 #include <numeric>
-#include "Algorithms/SearchAlgorithms.h"
-#include "Algorithms/DynamicAlgorithms.h"
-#include "Algorithms/SortingAlgorithms.h"
-#include "NumbersLogic/Primes.h"
 #include <iostream>
 using namespace MathStuff;
 
@@ -579,15 +573,106 @@ std::map<int, int> SearchAlgorithms::find_duplicates(const T& pairs_)
 
 }
 template<typename Container, typename Element>
-bool SearchAlgorithms::contains(const Container& container_, const Element& element_)
+bool SearchAlgorithms::contains_linear(const Container& container_, const Element& element_)
 {
-    return std::find(container_.begin(), container_.end(), element_) != container_.end();
+    for (const auto& item : container_) {
+        if (item == element_) {
+            return true;
+        }
+    }
+    return false;
+}
+template<typename Container, typename Element>
+bool SearchAlgorithms::contains_binary(const Container& container_, const Element& element_)
+{
+    int low = 0;
+    int high = container_.size() - 1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (container_[mid] == element_) {
+            return true;
+        }
+        else if (container_[mid] < element_) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+
+    return false;
+}
+template<typename Container, typename Element>
+bool SearchAlgorithms::contains_interpolation(const Container& container_, const Element& element_)
+{
+    int low = 0;
+    int high = container_.size() - 1;
+
+    while (low <= high && element_ >= container_[low] && element_ <= container_[high]) {
+        if (low == high) {
+            if (container_[low] == element_) {
+                return true;
+            }
+            return false;
+        }
+
+        int pos = low + ((element_ - container_[low]) * (high - low)) / (container_[high] - container_[low]);
+
+        if (container_[pos] == element_) {
+            return true;
+        }
+        else if (container_[pos] < element_) {
+            low = pos + 1;
+        }
+        else {
+            high = pos - 1;
+        }
+    }
+
+    return false;
 }
 
-template bool SearchAlgorithms::contains<std::vector<int>>(const std::vector<int>& container_, const int& element_);
+template<typename Container, typename Element>
+bool SearchAlgorithms::contains_jump(const Container& container_, const Element& element_)
+{
+    int size = container_.size();
+    int step = static_cast<int>(sqrt(size));
+    int prev = 0;
+
+    while (container_[std::min(step, size) - 1] < element_) {
+        prev = step;
+        step += static_cast<int>(sqrt(size));
+
+        if (prev >= size) {
+            return false;
+        }
+    }
+
+    while (container_[prev] < element_) {
+        prev++;
+
+        if (prev == std::min(step, size)) {
+            return false;
+        }
+    }
+
+    if (container_[prev] == element_) {
+        return true;
+    }
+
+    return false;
+}
+template bool SearchAlgorithms::contains_linear<std::vector<int>>(const std::vector<int>& container_, const int& element_);
+template bool SearchAlgorithms::contains_interpolation<std::vector<int>>(const std::vector<int>& container_, const int& element_);
+template bool SearchAlgorithms::contains_binary<std::vector<int>>(const std::vector<int>& container_, const int& element_);
+template bool SearchAlgorithms::contains_jump<std::vector<int>>(const std::vector<int>& container_, const int& element_);
+
+
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::vector<int>& c);
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::list<int>& c);
 template std::map<int, int> SearchAlgorithms::find_duplicates(const std::vector<double>& c);
-template std::map<int, int> SearchAlgorithms::find_duplicates(const std::list<int>& c);
+template std::map<int, int> SearchAlgorithms::find_duplicates(const std::list<double>& c);
 
 
