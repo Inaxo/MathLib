@@ -31,14 +31,7 @@ MathLib includes various functions related to prime numbers and number theory, i
 To start using MathLib, you need to add the MathLib .lib file to your project and include the main header file "MathLib.h" in your C++ project:
 
 ```CPP
-#include "MathLib/MathLib.h" 
-```
-To use a specific feature, include the corresponding header, such as the following examples:
-
-```CPP
-#include "MathLib/QuadraticFunctions.h"  // to use quadratic functions
-#include "MathLib/Algorithms/SearchAlgorithms.h"  // to use search algorithms
-#include "MathLib/NumberTheory/NumbersLogic.h"  // to use number theory functions
+#include "MathLib.h" 
 ```
 
 ## Example
@@ -49,8 +42,7 @@ Here's an example that demonstrates how to use MathLib to transform containers a
 ```CPP
 #include <iostream>
 #include <vector>
-#include "../MathLib/MathLib.h"
-#include "../MathLib/Equations/QuadraticEquation.h"
+#include "MathLib.h"
 
 using namespace MathStuff;
 using namespace std;
